@@ -1,0 +1,26 @@
+﻿body {
+}
+
+.fade {
+    opacity: 1;
+    transition: all 0.1s;
+}
+
+.fade:hover {
+   box-shadow: 3px 3px 25px #808080;
+}
+
+h2 {
+    text-shadow: 5px 3px 6px rgba(0,0,0,0.2);
+}
+
+h1 {
+    display: inline-block;
+    position: relative;
+    letter-spacing: .02em;
+    transition: all 1s;
+}
+
+h1:hover {
+        color: #600303;
+}

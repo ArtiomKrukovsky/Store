@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Store.Models.Order>
+
+@{
+    ViewBag.Title = "Список заказов";
+}
+
+<h2>Список заказов</h2>
+
+<p>
+    @Html.ActionLink("Добавить", "CreateOrder")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Create_At)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Create_At)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditOrder", new { id=item.OrderId }) |
+            @Html.ActionLink("Удалить", "DeleteOrder", new { id=item.OrderId })
+        </td>
+    </tr>
+}
+
+</table>

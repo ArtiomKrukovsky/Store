@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+    @{
+        ViewBag.Title = "Home Page";
+    }
+    <meta charset="utf-8"/>
+    <link href="~/Content/StyleIndex.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 data-name="Лучший в мире мазазин">Лучший в мире мазазин</h1>
+        <p class="lead">В нашем магазине собраны самые лучшие товары со всего мира!!!</p>
+        <p><a href="https://vk.com/k_apyst_a" class="btn btn-primary btn-lg">Автор магазина &raquo;</a></p>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+            <h2  class="col-md-offset-3">Страны</h2>
+            <p>
+                <a href="/Store/GetCountries/"><img class="fade" src="http://hzbolshe.ru/wp-content/uploads/fon.jpg" width="300" height="190" /></a>
+            </p>
+            <p><a class="btn btn-info" href="/Store/GetCountries/">Перейти к списку стран &raquo;</a></p>
+        </div>
+
+        <div class="col-md-4">
+            <h2 class="col-md-offset-2">Пользователи</h2>
+            <p>
+                <a href="/Store/GetUsers/"><img class="fade"  src="http://headmade.by/wp-content/uploads/2012/10/teaser644.jpg" width="300" height="190" /></a>
+            </p>
+            <p><a class="btn btn-info" href="/Store/GetUsers/">Перейти к списку пользователей &raquo;</a></p>
+        </div>
+        <div class="col-md-4 ">
+            <h2 class="col-md-offset-3 justify-content-center">Продавцы</h2>
+            <p>
+                <a href="/Store/GetSellers/"><img class="fade"  src="https://st.depositphotos.com/1003098/5097/i/450/depositphotos_50975527-stock-photo-salespeople-standing-arms-crossed-in.jpg" width="300" height="190" /></a>
+            </p>
+            <p><a class="btn btn-info" href="/Store/GetSellers/">Перейти к списку продавцов &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+            <h2 class="col-md-offset-3">Товары</h2>
+            <p>
+                <a href="/Store/GetProducts/"><img class="fade"  src="https://i0.wp.com/evolineplus.by/wp-content/uploads/2018/02/suvenirnaja-produkcija-s-logotipom-kompanii.jpg" width="300" height="190" /></a>
+            </p>
+            <p><a class="btn btn-info" href="/Store/GetProducts/">Перейти к списку товаров &raquo;</a></p>
+        </div>
+
+        <div class="col-md-4">
+            <h2 class="col-md-offset-3">Заказы</h2>
+            <p>
+                <a href="/Store/GetOrders/"><img class="fade"  src="https://img2.gorod.lv/images/news_item_in_cifs/pic/279355/big/parcel-delivery-package.jpg?v=1488807714" width="300" height="190" /></a>
+            </p>
+            <p><a class="btn btn-info" href="/Store/GetOrders/">Перейти к списку заказов &raquo;</a></p>
+        </div>
+        <div class="col-md-4 ">
+            <h2 class="col-md-offset-2 justify-content-center">Детали заказа</h2>
+            <p>
+                <a href="/Store/GetOrderItems/"><img class="fade"  src="https://ucell.uz/media/images/img/service/internet_settings.jpg" width="300" height="190" /></a>
+            </p>
+            <p><a class="btn btn-info" href="/Store/GetOrderItems/">Перейти к деталям заказов &raquo;</a></p>
+        </div>
+    </div>
+</body>
+</html>
