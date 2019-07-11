@@ -86,3 +86,15 @@ C:\Users\User\source\repos\Store\Store\obj\Debug\Store.csproj.CoreCompileInputs.
 C:\Users\User\source\repos\Store\Store\obj\Debug\Store.csproj.CopyComplete
 C:\Users\User\source\repos\Store\Store\obj\Debug\Store.dll
 C:\Users\User\source\repos\Store\Store\obj\Debug\Store.pdb
+C:\Users\User\source\repos\Store\Store\bin\Ninject.dll
+C:\Users\User\source\repos\Store\Store\bin\Ninject.Web.Common.dll
+C:\Users\User\source\repos\Store\Store\bin\Ninject.Web.Common.WebHost.dll
+C:\Users\User\source\repos\Store\Store\bin\Ninject.Web.Mvc.dll
+C:\Users\User\source\repos\Store\Store\bin\Store.Domain.dll
+C:\Users\User\source\repos\Store\Store\bin\Store.Domain.pdb
+C:\Users\User\source\repos\Store\Store\bin\Store.Domain.dll.config
+C:\Users\User\source\repos\Store\Store\bin\Ninject.xml
+C:\Users\User\source\repos\Store\Store\bin\Ninject.Web.Common.xml
+C:\Users\User\source\repos\Store\Store\bin\Ninject.Web.Common.WebHost.xml
+C:\Users\User\source\repos\Store\Store\bin\Ninject.Web.Mvc.xml
+C:\Users\User\source\repos\Store\Store\bin\ru\EntityFramework.SqlServer.resources.dll

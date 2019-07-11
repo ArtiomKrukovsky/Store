@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Store.Domain.Models.Seller>
+
+@{
+    ViewBag.Title = "Список продавцов";
+}
+
+<h2>Список продавцов</h2>
+
+<p>
+    @Html.ActionLink("Добавить", "CreateSeller")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Create_At)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Create_At)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FullName)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditSeller", new { id=item.SellerId }) |
+            @Html.ActionLink("Удалить", "DeleteSeller", new { id=item.SellerId })
+        </td>
+    </tr>
+}
+
+</table>
