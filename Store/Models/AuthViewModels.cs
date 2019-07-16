@@ -1,17 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Store.Domain.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
-namespace Store.Domain.Models
+namespace Store.Models
 {
-    public class User
+    public class LoginModel
     {
-        [Required(ErrorMessage = "Отсутствует код пользователя")]
-        [Display(Name = "Код пользователя")]
-        public int UserId { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Недопустимое кол-во символов")]
+        [Required(ErrorMessage = "Отсутствует Email")]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
 
+        [StringLength(40, MinimumLength = 6, ErrorMessage = "Пароль должен содержать не менее 6 символов")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Отсутствует пароль")]
+        [Display(Name = "Пароль")]
+        public string Password { get; set; }
+
+    }
+
+    public class RegisterModel
+    {
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Недопустимое кол-во символов")]
         [Required(ErrorMessage = "Отсутствует имя пользовател")]
         [Display(Name = "Полное имя пользователя")]
@@ -23,11 +33,18 @@ namespace Store.Domain.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [StringLength(40, MinimumLength =6,ErrorMessage ="Пароль должен содержать не менее 6 символов")]
+        [StringLength(40, MinimumLength = 6, ErrorMessage = "Пароль должен содержать не менее 6 символов")]
         [DataType(DataType.Password)]
-        [Required(ErrorMessage ="Отсутствует пароль")]
-        [Display(Name ="Пароль")]
+        [Required(ErrorMessage = "Отсутствует пароль")]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
+
+        [Compare("Password")]
+        [StringLength(40, MinimumLength = 6, ErrorMessage = "Пароль должен содержать не менее 6 символов")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Отсутствует пароль")]
+        [Display(Name = "Проверка пароля")]
+        public string PasswordConform { get; set; }
 
         [StringLength(3, MinimumLength = 3, ErrorMessage = "Недопустимое кол-во символов")]
         [Required(ErrorMessage = "Отсутствует ваш пол")]
@@ -39,32 +56,11 @@ namespace Store.Domain.Models
         [Display(Name = "Дата рождения")]
         public DateTime Date_of_birthday { get; set; }
 
-        [DataType(DataType.DateTime)]
-        [Required(ErrorMessage = "Отсутствует дата создания")]
-        [Display(Name = "Дата создания")]
-        public DateTime Create_At { get; set; }
-
         [Range(1, 1000, ErrorMessage = "Недопустимая длинна кода")]
         [Required(ErrorMessage = "Отсутствует код страны")]
         [Display(Name = "Код страны")]
         public int CountryId { get; set; }
 
-        public int RoleId { get; set; }
-
-        public virtual Role Role { get; set; }
-
         public virtual Country Country { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Seller> Sellers { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            Sellers = new List<Seller>();
-            Orders= new List<Order>();
-        }
     }
 }

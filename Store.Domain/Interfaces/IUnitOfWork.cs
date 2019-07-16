@@ -11,6 +11,7 @@ namespace Store.Domain.Interfaces
         GenericRepository<Product> Products { get; }
         GenericRepository<Order> Orders { get; }
         GenericRepository<OrderItem> OrderItems { get; }
+        GenericRepository<Role> Roles { get; }
 
         void SaveChanges();
     }

@@ -23,6 +23,7 @@ namespace Store.Controllers
             return View(countries);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -43,6 +44,7 @@ namespace Store.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Create()
         {
@@ -61,6 +63,7 @@ namespace Store.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Delete(int id)
         {

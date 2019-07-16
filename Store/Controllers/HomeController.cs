@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Store.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         StoreContext context = new StoreContext();

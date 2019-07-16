@@ -22,6 +22,7 @@ namespace Store.Controllers
             return View(users);
         }
 
+        [Authorize(Roles="admin")]
         [HttpGet]
         public ActionResult EditUser(int id)
         {
@@ -46,6 +47,7 @@ namespace Store.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult CreateUser()
         {
@@ -68,6 +70,7 @@ namespace Store.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult DeleteUser(int id)
         {
