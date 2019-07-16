@@ -25,6 +25,7 @@ namespace Store.Controllers
             return View(sellers);
         }
 
+        [Authorize(Roles = "admin, seller")]
         [HttpGet]
         public ActionResult EditSeller(int id)
         {
@@ -53,7 +54,7 @@ namespace Store.Controllers
             ViewBag.userlist = listu;
             return View();
         }
-
+        [Authorize(Roles = "admin, seller")]
         [HttpGet]
         public ActionResult CreateSeller()
         {
@@ -81,7 +82,7 @@ namespace Store.Controllers
             ViewBag.userlist = listu;
             return View();
         }
-
+        [Authorize(Roles = "admin, seller")]
         [HttpGet]
         public ActionResult DeleteSeller(int id)
         {

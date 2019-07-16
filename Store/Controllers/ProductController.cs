@@ -21,6 +21,7 @@ namespace Store.Controllers
             return View(products);
         }
 
+        [Authorize(Roles = "admin, seller")]
         [HttpGet]
         public ActionResult EditProduct(int id)
         {
@@ -45,6 +46,7 @@ namespace Store.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin, seller")]
         [HttpGet]
         public ActionResult CreateProduct()
         {
@@ -67,6 +69,7 @@ namespace Store.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin, seller")]
         [HttpGet]
         public ActionResult DeleteProduct(int id)
         {

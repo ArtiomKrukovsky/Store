@@ -140,6 +140,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -150,6 +151,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907101226596_InitialCreate.cs" />
+    <Compile Include="Migrations\201907101226596_InitialCreate.Designer.cs">
+      <DependentUpon>201907101226596_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907161124033_Migration1.cs" />
+    <Compile Include="Migrations\201907161124033_Migration1.Designer.cs">
+      <DependentUpon>201907161124033_Migration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907161330355_mig2.cs" />
+    <Compile Include="Migrations\201907161330355_mig2.Designer.cs">
+      <DependentUpon>201907161330355_mig2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AuthViewModels.cs" />
     <Compile Include="Util\NinjectRegistrations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -211,10 +226,11 @@
     <Content Include="Views\OrderItem\GetOrderItems.cshtml" />
     <Content Include="Views\OrderItem\EditOrderItem.cshtml" />
     <Content Include="Views\OrderItem\CreateOrderItem.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -234,6 +250,17 @@
       <Project>{1E8C1CBD-E947-42CF-B670-2FFCEF6E66BE}</Project>
       <Name>Store.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907101226596_InitialCreate.resx">
+      <DependentUpon>201907101226596_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907161124033_Migration1.resx">
+      <DependentUpon>201907161124033_Migration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907161330355_mig2.resx">
+      <DependentUpon>201907161330355_mig2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

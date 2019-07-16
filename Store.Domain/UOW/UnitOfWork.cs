@@ -19,6 +19,7 @@ namespace Store.Domain.UOW
         private GenericRepository<Product> productRepository;
         private GenericRepository<Order> orderRepository;
         private GenericRepository<OrderItem> orderitemRepository;
+        private GenericRepository<Role> roleRepository;
 
 
         public GenericRepository<Country> Countries
@@ -28,6 +29,16 @@ namespace Store.Domain.UOW
                 if (countryRepository == null)
                     countryRepository = new GenericRepository<Country>(context);
                 return countryRepository;
+            }
+        }
+
+        public GenericRepository<Role> Roles
+        {
+            get
+            {
+                if (roleRepository == null)
+                    roleRepository = new GenericRepository<Role>(context);
+                return roleRepository;
             }
         }
 
