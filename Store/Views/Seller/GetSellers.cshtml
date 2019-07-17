@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Store.Domain.Models.Seller>
+﻿@model Store.Models.SellerFilterViewModel
 
 @{
     ViewBag.Title = "Список продавцов";
@@ -6,27 +6,53 @@
 
 <h2>Список продавцов</h2>
 
+<br />
+@using (Html.BeginForm("GetSellers","Seller", FormMethod.Get, new {@class="form-inline", role="form" }))
+{
+    <div style= "background-color:rgba(144, 144, 144, 0.19); margin:5px; border: 2px solid rgba(182, 182, 182, 0.40); border-radius: 15px; padding: 6px; padding-top:8px;">
+        <div class="form-group col-md-offset-2">
+            @Html.Label("Код страны:", new {@class="control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.DropDownList("country", Model.Country as SelectList, new {@class="form-control"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Пользователь:", new {@class="control-label col-md-5" })
+            <div class="col-md-7">
+                @Html.DropDownList("user_code", Model.User as SelectList, new {@class="form-control"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-6">
+                <input type="submit" class="btn btn-info" value="Фильтровать" />
+            </div>
+        </div>
+    </div>
+}
+
 <p>
     @Html.ActionLink("Добавить", "CreateSeller")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Имя продовца
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Create_At)
+            Дата создания
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CountryId)
+            Код страны
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserId)
+            Код пользователя
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Sellers) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)

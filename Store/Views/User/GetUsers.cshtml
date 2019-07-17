@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Store.Domain.Models.User>
+﻿
+@model Store.Models.UserFilterViewModel
 
 @{
     ViewBag.Title = "Список пользователей";
@@ -6,57 +7,90 @@
 
 <h2>Список пользователей</h2>
 
+<br/>
+@using (Html.BeginForm("GetUsers", "User", FormMethod.Get, new { @class = "form-inline", role = "form" }))
+{
+<div style= "background-color:rgba(144, 144, 144, 0.19); margin:5px; border: 2px solid rgba(182, 182, 182, 0.40); border-radius: 15px; padding: 3px; padding-top:5px;">
+    <div class="form-group">
+        @Html.Label("Имя игрока:", new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.DropDownList("fullname", Model.FullName as SelectList, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Email:", new { @class = "control-label col-md-3" })
+        <div class="col-md-9">
+            @Html.DropDownList("email", Model.Email as SelectList, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Дата создания:", new { @class = "control-label col-md-3" })
+        <div class="col-md-9">
+            @Html.DropDownList("create_at", Model.Create_At as SelectList, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-info" value="Фильтровать" />
+    </div>
+</div>
+
+}
+
+
 <p>
     @Html.ActionLink("Добавить", "CreateUser")
 </p>
-<table class="table">
+<table class="table" style="">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FullName)
+            Полное имя пользователя
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            Пол
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date_of_birthday)
+            Дата рождения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Create_At)
+            Дата создания
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CountryId)
+            Код страны
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date_of_birthday)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Create_At)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Изменить", "EditUser", new { id=item.UserId }) |
-            @Html.ActionLink("Удалить", "DeleteUser", new { id=item.UserId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Users)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_of_birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Create_At)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "EditUser", new { id = item.UserId }) |
+                @Html.ActionLink("Удалить", "DeleteUser", new { id = item.UserId })
+            </td>
+        </tr>
+    }
 
 </table>

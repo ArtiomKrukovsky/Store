@@ -165,6 +165,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthViewModels.cs" />
+    <Compile Include="Models\SellerFilterViewModel.cs" />
+    <Compile Include="Models\UserFilterViewModel.cs" />
     <Compile Include="Util\NinjectRegistrations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

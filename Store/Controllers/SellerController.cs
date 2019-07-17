@@ -2,6 +2,7 @@
 using Store.Domain.Interfaces;
 using Store.Domain.Models;
 using Store.Domain.UOW;
+using Store.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,10 +20,33 @@ namespace Store.Controllers
             this.context = context;
         }
         #region Sellers
-        public ActionResult GetSellers()
+        public ActionResult GetSellers(int? country, int? user_code)
         {
             var sellers = context.Sellers.GetAll();
-            return View(sellers);
+            if (country!=null && country!=0)
+            {
+                sellers = sellers.Where(s => s.CountryId == country);
+            }
+
+            if (user_code != null && user_code != 0)
+            {
+                sellers = sellers.Where(s => s.UserId == user_code);
+            }
+
+            List<Country> countries = context.Countries.GetAll().ToList();
+            countries.Insert(0, new Country { CountryId = 0, Name = "Все" });
+
+            List<User> users = context.Users.GetAll().ToList();
+            users.Insert(0, new User { UserId = 0, FullName = "Все" });
+
+            SellerFilterViewModel sellerFilter = new SellerFilterViewModel
+            {
+                Sellers = sellers.ToList(),
+                Country = new SelectList(countries, "CountryId", "Name"),
+                User = new SelectList(users, "UserId", "FullName")
+            };
+
+            return View(sellerFilter);
         }
 
         [Authorize(Roles = "admin, seller")]
