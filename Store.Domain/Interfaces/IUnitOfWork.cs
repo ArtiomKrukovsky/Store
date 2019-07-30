@@ -5,13 +5,13 @@ namespace Store.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        GenericRepository<Country> Countries {get;}
-        GenericRepository<User> Users { get; }
-        GenericRepository<Seller> Sellers { get; }
-        GenericRepository<Product> Products { get; }
-        GenericRepository<Order> Orders { get; }
-        GenericRepository<OrderItem> OrderItems { get; }
-        GenericRepository<Role> Roles { get; }
+        IRepository<Country> Countries {get;}
+        IRepository<User> Users { get; }
+        IRepository<Seller> Sellers { get; }
+        IRepository<Product> Products { get; }
+        IRepository<Order> Orders { get; }
+        IRepository<OrderItem> OrderItems { get; }
+        IRepository<Role> Roles { get; }
 
         void SaveChanges();
     }

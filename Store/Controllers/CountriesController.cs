@@ -57,7 +57,7 @@ namespace Store.Controllers
             if (ModelState.IsValid)
             {
                 context.Countries.Create(country);
-                context.SaveChanges();
+                context.Countries.SaveChanges();
                 return RedirectToAction("GetCountries");
             }
             return View();
@@ -68,7 +68,7 @@ namespace Store.Controllers
         public ActionResult Delete(int id)
         {
             context.Countries.Delete(id);
-            context.SaveChanges();
+            context.Countries.SaveChanges();
             return RedirectToAction("GetCountries");
         }
 

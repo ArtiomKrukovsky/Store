@@ -15,5 +15,6 @@ namespace Store.Domain.Interfaces
         void Edit(T Entity);
         void Delete(int id);
         IEnumerable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "");
+        void SaveChanges();
     }
 }
