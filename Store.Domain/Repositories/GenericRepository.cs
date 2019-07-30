@@ -72,9 +72,10 @@ namespace Store.Domain.Repositories
             return _dbSet.AsNoTracking().ToList();
         }
 
-        public IQueryable<TEntity> GetAllQueryble()
+        public void SaveChanges()
         {
-            return _dbSet.AsNoTracking();
+            context.SaveChanges();
         }
+
     }
 }

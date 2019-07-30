@@ -57,6 +57,8 @@ namespace Store.Controllers
             if (user == null) HttpNotFound();
             SelectList list = new SelectList(context.Countries.GetAll(), "CountryId", "Name");
             ViewBag.list = list;
+            SelectList listrole = new SelectList(context.Roles.GetAll(), "RoleId", "Name");
+            ViewBag.listrole = listrole;
             return View(user);
         }
 
@@ -71,6 +73,8 @@ namespace Store.Controllers
             }
             SelectList list = new SelectList(context.Countries.GetAll(), "CountryId", "Name");
             ViewBag.list = list;
+            SelectList listrole = new SelectList(context.Roles.GetAll(), "RoleId", "Name");
+            ViewBag.listrole = listrole;
             return View();
         }
 
@@ -86,6 +90,7 @@ namespace Store.Controllers
         [HttpPost, ActionName("CreateUser")]
         public ActionResult CreateUser(User user)
         {
+            user.RoleId = 3;
             if (ModelState.IsValid)
             {
                 context.Users.Create(user);

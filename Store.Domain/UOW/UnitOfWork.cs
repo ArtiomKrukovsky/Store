@@ -13,88 +13,93 @@ namespace Store.Domain.UOW
     {
         private StoreContext context = new StoreContext();
 
-        private GenericRepository<Country> countryRepository;
-        private GenericRepository<User> userRepository;
-        private GenericRepository<Seller> sellerRepository;
-        private GenericRepository<Product> productRepository;
-        private GenericRepository<Order> orderRepository;
-        private GenericRepository<OrderItem> orderitemRepository;
-        private GenericRepository<Role> roleRepository;
+        public UnitOfWork(IRepository<Country> repository, IRepository<User> userrepository, IRepository<Role> rolerepository, 
+            IRepository<Seller> sellerrepository, IRepository<Product> productrepository, IRepository<Order> orderrepository, 
+            IRepository<OrderItem> orderitemrepository)
+        {
+            countryRepository= repository;
+            userRepository = userrepository;
+            roleRepository = rolerepository;
+            sellerRepository = sellerrepository;
+            productRepository = productrepository;
+            orderRepository = orderrepository;
+            orderitemRepository = orderitemrepository;
+        }
+
+        private IRepository<Country> countryRepository;
+        private IRepository<User> userRepository;
+        private IRepository<Seller> sellerRepository;
+        private IRepository<Product> productRepository;
+        private IRepository<Order> orderRepository;
+        private IRepository<OrderItem> orderitemRepository;
+        private IRepository<Role> roleRepository;
 
 
-        public GenericRepository<Country> Countries
+        public IRepository<Country> Countries
         {
             get
             {
-                if (countryRepository == null)
-                    countryRepository = new GenericRepository<Country>(context);
                 return countryRepository;
             }
         }
 
-        public GenericRepository<Role> Roles
+        public IRepository<Role> Roles
         {
             get
             {
-                if (roleRepository == null)
-                    roleRepository = new GenericRepository<Role>(context);
                 return roleRepository;
             }
         }
 
-        public GenericRepository<User> Users
+        public IRepository<User> Users
         {
             get
             {
-                if (userRepository == null)
-                    userRepository = new GenericRepository<User>(context);
                 return userRepository;
             }
         }
 
-        public GenericRepository<Seller> Sellers
+        public IRepository<Seller> Sellers
         {
             get
             {
-                if (sellerRepository == null)
-                    sellerRepository = new GenericRepository<Seller>(context);
                 return sellerRepository;
             }
         }
 
-        public GenericRepository<Product> Products
+        public IRepository<Product> Products
         {
             get
             {
-                if (productRepository == null)
-                    productRepository = new GenericRepository<Product>(context);
                 return productRepository;
             }
         }
 
-        public GenericRepository<Order> Orders
+        public IRepository<Order> Orders
         {
             get
             {
-                if (orderRepository == null)
-                    orderRepository = new GenericRepository<Order>(context);
                 return orderRepository;
             }
         }
 
-        public GenericRepository<OrderItem> OrderItems
+        public IRepository<OrderItem> OrderItems
         {
             get
             {
-                if (orderitemRepository == null)
-                    orderitemRepository = new GenericRepository<OrderItem>(context);
                 return orderitemRepository;
             }
         }
 
         public void SaveChanges()
         {
-            context.SaveChanges();
+            countryRepository.SaveChanges();
+            userRepository.SaveChanges();
+            roleRepository.SaveChanges(); 
+            sellerRepository.SaveChanges();
+            productRepository.SaveChanges();
+            orderRepository.SaveChanges();
+            orderitemRepository.SaveChanges();
         }
 
         private bool disposed = false;
